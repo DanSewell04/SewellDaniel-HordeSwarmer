@@ -6,8 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public float damage = 10f;
     public float initialForce = 10f;
-    public float forceIncreaseRate = 2f; 
-    public float maxForce = 20f; 
+    public float forceIncreaseRate = 2f;
+    public float maxForce = 20f;
 
     private Rigidbody rb;
 
@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-     
+
     }
 
     void OnCollisionEnter(Collision collision)
@@ -23,8 +23,19 @@ public class Bullet : MonoBehaviour
         
         if (collision.collider.CompareTag("Enemy"))
         {
-            collision.collider.GetComponent<Health>().TakeDamage(damage);
-            Destroy(gameObject);
+           
+            EnemyHealth enemyHealth = collision.collider.GetComponent<EnemyHealth>();
+
+            
+            if (enemyHealth != null)
+            {
+                
+                enemyHealth.TakeDamage(damage);
+
+                
+                Destroy(gameObject);
+            }
         }
     }
 }
+
