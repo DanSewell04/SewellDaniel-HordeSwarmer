@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth = 100f;
-    private float currentHealth;
+    public int maxHealth = 100;
+    private int currentHealth;
 
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damageAmount)
     {
-        currentHealth -= damage;
+        currentHealth -= damageAmount;
 
-        if (currentHealth <= 0)
+        if(maxHealth < 0)
         {
-            Die();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Player took damage. Current health: " + currentHealth);
+
         }
     }
 
-    void Die()
-    {
-        Destroy(gameObject);
-        Debug.Log("Player died!");
-    }
 }
+

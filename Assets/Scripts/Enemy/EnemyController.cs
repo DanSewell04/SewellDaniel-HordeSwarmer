@@ -5,17 +5,21 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 5f; 
-    public float maxHealth = 100f; 
+    public float speed = 5f;
+    public float maxHealth = 100f;
 
     private float currentHealth;
+    public int damageAmount = 10;
 
     private Transform player;
     public Transform respawnPoint;
 
+    private Quaternion initialRotation;
+
+
     void Start()
     {
-        
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (player == null)
@@ -24,17 +28,18 @@ public class EnemyController : MonoBehaviour
         }
 
         currentHealth = maxHealth;
+        initialRotation = transform.rotation;
     }
 
     void Update()
     {
-     
+
         transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 
     public void TakeDamage(float damage)
     {
-        
+
         currentHealth -= damage;
 
         if (currentHealth <= 0)
@@ -45,41 +50,42 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
-        
+
         Destroy(gameObject);
-        RespawnEnemy(2f);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        
-        if (other.CompareTag("Player"))
+        // Check if the collision is with the player
+        if (collision.gameObject.CompareTag("Player"))
         {
-            
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            // Get the player's health script
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
 
+            // If the player has a health script, apply damage
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(maxHealth); 
+                playerHealth.TakeDamage(damageAmount);
             }
         }
-    }
-     void RespawnEnemy(float respawnDelay)
-    {
-        
-        Instantiate(gameObject, respawnPoint.position, respawnPoint.rotation);
-        transform.position = respawnPoint.position;
-        gameObject.SetActive(true);
-        
+
+        void RespawnEnemy(float respawnDelay)
+        {
+
+            Instantiate(gameObject, respawnPoint.position, respawnPoint.rotation);
+            transform.position = respawnPoint.position;
+            gameObject.SetActive(true);
 
 
-    }
 
-    
-    private void EnableCollider()
-    {
-         GetComponent<Collider>().enabled = true;
-    }
-}
+        }
+
+
+        void EnableCollider()
+        {
+            GetComponent<Collider>().enabled = true;
+        }
+    } }
+
 
 
