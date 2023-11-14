@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     private float currentHealth;
 
     private Transform player;
+    public Transform respawnPoint;
 
     void Start()
     {
@@ -46,6 +47,7 @@ public class EnemyController : MonoBehaviour
     {
         
         Destroy(gameObject);
+        RespawnEnemy(2f);
     }
 
     void OnTriggerEnter(Collider other)
@@ -61,6 +63,19 @@ public class EnemyController : MonoBehaviour
                 playerHealth.TakeDamage(maxHealth); 
             }
         }
+    }
+    private void RespawnEnemy(float respawnDelay)
+    {
+        
+        Instantiate(gameObject, respawnPoint.position, respawnPoint.rotation);
+        
+
+    }
+
+    
+    private void EnableCollider()
+    {
+         GetComponent<Collider>().enabled = true;
     }
 }
 
