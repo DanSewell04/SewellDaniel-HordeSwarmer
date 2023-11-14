@@ -9,6 +9,9 @@ public class Bullet : MonoBehaviour
     public float forceIncreaseRate = 2f;
     public float maxForce = 20f;
 
+    public string enemyTag = "Enemy";
+
+
     private Rigidbody rb;
 
     void Start()
@@ -18,23 +21,16 @@ public class Bullet : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         
-        if (collision.collider.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(enemyTag))
         {
-           
-            EnemyHealth enemyHealth = collision.collider.GetComponent<EnemyHealth>();
-
             
-            if (enemyHealth != null)
-            {
-                
-                enemyHealth.TakeDamage(damage);
+            Destroy(collision.gameObject);
 
-                
-                Destroy(gameObject);
-            }
+           
+            Destroy(gameObject);
         }
     }
 }

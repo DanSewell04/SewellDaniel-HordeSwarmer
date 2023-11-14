@@ -204,3 +204,4 @@ MonoBehaviour:
   initialForce: 20
   forceIncreaseRate: 5
   maxForce: 50
+  enemyTag: Enemy
