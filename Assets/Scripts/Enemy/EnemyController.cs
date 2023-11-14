@@ -64,11 +64,14 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    private void RespawnEnemy(float respawnDelay)
+     void RespawnEnemy(float respawnDelay)
     {
         
         Instantiate(gameObject, respawnPoint.position, respawnPoint.rotation);
+        transform.position = respawnPoint.position;
+        gameObject.SetActive(true);
         
+
 
     }
 
