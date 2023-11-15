@@ -20,10 +20,10 @@ public class EnemyRespawn : MonoBehaviour
         {
             yield return new WaitForSeconds(respawnTime);
 
-            // Instantiate a new enemy at the spawn point
+            
             GameObject newEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
 
-            Destroy(newEnemy, 10f);
+           
         }
     }
 }
