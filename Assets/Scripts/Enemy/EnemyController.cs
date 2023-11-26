@@ -56,13 +56,13 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Check if the collision is with the player
+        
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Get the player's health script
+           
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
 
-            // If the player has a health script, apply damage
+            
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damageAmount);

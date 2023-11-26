@@ -811,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33, y: -219}
+  m_AnchoredPosition: {x: -304, y: -342.7}
   m_SizeDelta: {x: 315.9623, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &540635530
@@ -845,7 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1155333733}
   spawnPoint: {fileID: 540635532}
-  respawnTime: 0.5
+  respawnTime: 1
 --- !u!4 &540635532
 Transform:
   m_ObjectHideFlags: 0
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1155333733}
   spawnPoint: {fileID: 543481747}
-  respawnTime: 0.5
+  respawnTime: 1
 --- !u!1 &555629909 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8900838258180151802, guid: 5a31141e6696d45ab926369601cca605, type: 3}
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1155333733}
   spawnPoint: {fileID: 751326025}
-  respawnTime: 0.5
+  respawnTime: 1
 --- !u!4 &751326025
 Transform:
   m_ObjectHideFlags: 0
@@ -1430,7 +1430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270, y: -219}
+  m_AnchoredPosition: {x: -561, y: -346}
   m_SizeDelta: {x: 315.9623, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &858615168
@@ -1692,6 +1692,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1470596450694152012, guid: b08cd7e8fccf3c446898a76303cdb5ad, type: 3}
   m_PrefabInstance: {fileID: 1777927474753859359}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1155333737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155333733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc3761e5b887684fae805b7e4b9b618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1206973872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7166259239455210438, guid: e125ee33af41143b8becc869e2706998, type: 3}
@@ -1819,7 +1831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8, y: 215}
+  m_AnchoredPosition: {x: 8, y: 341}
   m_SizeDelta: {x: 315.9623, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509428691
@@ -2579,7 +2591,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3099,6 +3111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1554923066999402396, guid: b08cd7e8fccf3c446898a76303cdb5ad, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3624015272476681962, guid: b08cd7e8fccf3c446898a76303cdb5ad, type: 3}
       propertyPath: respawnPoint
       value: 
@@ -3150,7 +3166,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1470596450694152012, guid: b08cd7e8fccf3c446898a76303cdb5ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1155333737}
   m_SourcePrefab: {fileID: 100100000, guid: b08cd7e8fccf3c446898a76303cdb5ad, type: 3}
 --- !u!1001 &2859044133893304683
 PrefabInstance:
